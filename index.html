@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin-top: 60px;
+  background-color: black;
+  color: ivory;
+}
+.content {
+  width: 50em;
+  height: 10em;
+  margin: 0 auto;
+}
+
+
+/** Earth */
+.earth {
+  object-fit: scale-down;
+  width: 4em;
+  height: 4em;
+  position: absolute;
+}
+.earth-animate {
+  animation-duration: 5s;
+  animation-name: earth-orbit;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+
+  animation-timing-function: linear;
+}
+
+@keyframes earth-orbit {
+  from {
+    transform: translate(1em, 1em) scale(2) rotate(90deg);
+    z-index: 2;
+  }
+  25% {
+    transform: translate(20em, 4em) scale(4) rotate(0deg);
+    z-index: 3;
+  }
+  50% {
+    transform: translate(40em, 8em) scale(2) rotate(-90deg);
+    z-index: 1;
+  }
+  75% {
+    transform: translate(20em, 4em) scale(.5) rotate(0deg);
+    z-index: 1;
+  }
+  to {
+    transform: translate(1em, 1em) scale(2) rotate(90deg);
+    z-index: 1;
+  }
+}
+
+/** SUN */
+.sun {
+  margin-top: 2em;
+  margin-left: 20em;
+  z-index: 2;
+  position: absolute;
+  object-fit: scale-down;
+  width: 8em;
+  height: 8em;
+}
+.sun-animate {
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  
+  animation-duration: 4s;
+  animation-name: rotater;
+}
+@keyframes rotater {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>
+</head>
+
+<body>
+  <div class="content">
+    <img class="sun sun-animate" src="./sun.png" alt="the Sun">
+    <img class="earth earth-animate" src="./earth.png" alt="Ee-rrr-th">
+  </div>
+</body>
+
+</html>
